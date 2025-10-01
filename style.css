@@ -213,3 +213,23 @@ h2 {
   margin: 6px 0;
   text-align: center;
 }
+
+.email-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copy-btn {
+  background: transparent;
+  border: none;
+  color: var(--gold);
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.copy-btn:hover {
+  transform: scale(1.2);
+  color: var(--amber);
+}
