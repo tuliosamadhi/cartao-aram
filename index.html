@@ -23,20 +23,40 @@
       display: flex; justify-content: center; align-items: center;
     }
     .card {
-      background: var(--card);
-      border: 2px solid var(--gold);
-      border-radius: 20px;
-      padding: 24px 18px;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(212,175,55,0.4);
-      max-width: 400px; width: 92vw;
-      animation: fadeIn 1.2s ease;
-      position: relative; z-index: 1;
-    }
-    .logo {
-      width: 100px; margin-bottom: 12px;
-      animation: pulse 4s infinite;
-      filter: drop-shadow(0 0 6px rgba(212,175,55,0.6));
+  background: var(--card);
+  border: 2px solid var(--gold);
+  border-radius: 20px;
+  padding: 24px 18px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(212,175,55,0.4);
+  max-width: 400px; width: 92vw;
+  animation: fadeIn 1.2s ease;
+  position: relative; z-index: 1;
+}
+
+/* 🔧 Adicione este bloco logo depois de .card */
+.logo-qr {
+  display: flex;
+  flex-direction: column; /* padrão: empilhado (mobile) */
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 600px) {
+  .logo-qr {
+    flex-direction: row; /* em telas maiores: lado a lado */
+    gap: 20px;
+  }
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 12px;
+  animation: pulse 4s infinite;
+  filter: drop-shadow(0 0 6px rgba(212,175,55,0.6));
+}
     }
     .qr-img {
       width: 100px; margin: 10px auto 20px;
@@ -90,8 +110,10 @@
   </video>
 
   <div class="card">
-    <img src="logo.png" alt="Símbolo do Método ARAM" class="logo" loading="lazy">
-    <img src="card.png" alt="QR Code para acessar o cartão ARAM" class="qr-img" loading="lazy">
+    <div class="logo-qr">
+  <img src="logo.png" alt="Símbolo do Método ARAM" class="logo" loading="lazy">
+  <img src="card.png" alt="QR Code para acessar o cartão ARAM" class="qr-img" loading="lazy">
+</div>
 
     <h1>Método ARAM</h1>
     <h2>Religare sobre o Religare</h2>
