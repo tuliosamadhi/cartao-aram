@@ -6,96 +6,164 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0b0b0b">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lato:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="preload" href="logo-aram.png" as="image">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --black: #0b0b0b;
+      --card: #111;
+      --gold: #d4af37;
+      --amber: #f1c40f;
+      --text: #e5c97a;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0; height: 100%;
+      font-family: 'Cinzel', serif;
+      background: radial-gradient(1000px at center, #0b0b0b, #000);
+      color: var(--gold);
+      display: flex; justify-content: center; align-items: center;
+    }
+    .card {
+      background: var(--card);
+      border: 2px solid var(--gold);
+      border-radius: 20px;
+      padding: 24px 18px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(212,175,55,0.4);
+      max-width: 400px; width: 92vw;
+      animation: fadeIn 1.2s ease;
+    }
+    .logo {
+      width: 100px; margin-bottom: 12px;
+      animation: pulse 4s infinite;
+      filter: drop-shadow(0 0 6px rgba(212,175,55,0.6));
+    }
+    .qr-img {
+      width: 100px; margin: 10px auto 20px;
+      border: 2px solid var(--gold); border-radius: 10px;
+      padding: 6px; background: #000;
+      box-shadow: 0 0 10px rgba(212,175,55,0.4);
+    }
+    h1 { font-size: 1.6em; margin: 6px 0; }
+    h2 { font-size: 1.1em; font-weight: 400; color: var(--amber); margin: 4px 0 12px; }
+    .desc {
+      font-family: 'Lato', sans-serif; font-size: 1em;
+      color: var(--text); margin-bottom: 16px;
+    }
+    .links {
+      display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;
+    }
+    .links a, .contact-item {
+      display: block; padding: 12px;
+      border: 1px solid var(--gold); border-radius: 8px;
+      background: rgba(0,0,0,0.1);
+      color: var(--gold); font-family: 'Lato', sans-serif;
+      font-size: 1em; font-weight: 600;
+      text-decoration: none; transition: all 0.3s ease;
+      text-align: center;
+    }
+    .links a:hover { background: var(--gold); color: #111; }
+    .email-item { display: flex; justify-content: space-between; align-items: center; }
+    .copy-btn {
+      background: transparent; border: none; color: var(--gold);
+      font-size: 1.2em; cursor: pointer; transition: transform 0.2s ease;
+    }
+    .copy-btn:hover { transform: scale(1.2); color: var(--amber); }
+    #toast {
+      visibility: hidden; min-width: 220px;
+      background-color: rgba(212,175,55,0.95); color: #111;
+      text-align: center; border-radius: 8px;
+      padding: 12px 16px; position: fixed; z-index: 999;
+      left: 50%; bottom: 40px; transform: translateX(-50%);
+      font-family: 'Lato', sans-serif; font-weight: 600;
+      box-shadow: 0 0 12px rgba(212,175,55,0.5);
+      opacity: 0; transition: opacity 0.5s ease, bottom 0.5s ease;
+    }
+    #toast.show { visibility: visible; opacity: 1; bottom: 60px; }
+    .footer { font-size: 0.85em; color: var(--amber); margin-top: 10px; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: translateY(0);} }
+    @keyframes pulse { 0%,100% { transform: scale(1);} 50% { transform: scale(1.05);} }
+  </style>
 </head>
 <body>
-  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="card">
+    <img src="logo-aram.png" alt="Símbolo do Método ARAM" class="logo">
+    <img src="aram-card.png" alt="QR Code para acessar o cartão ARAM" class="qr-img">
 
-  <main class="scene" role="main">
-    <section class="card" aria-label="Cartão Digital ARAM">
-      <img src="logo-aram.png" alt="Símbolo do Método ARAM" class="logo">
+    <h1>Método ARAM</h1>
+    <h2>Religare sobre o Religare</h2>
+    <p class="desc">
+      Caminho de Cura, Sabedoria, Inteligência e Integração.<br>
+      Por Túlio Magalhães Jannuzzelli
+    </p>
 
-      <h1>Método ARAM</h1>
-      <h2>Religare sobre o Religare</h2>
-      <p class="desc">
-        Caminho de Cura, Sabedoria, Inteligência e Integração.<br>
-        Por Túlio Magalhães Jannuzzelli
-      </p>
+    <!-- Links principais -->
+    <div class="links">
+      <a href="Apresentacao_ARAMMETHOD_2025.pdf" target="_blank">📄 Apresentação ARAM</a>
+      <a href="Curriculo_TulioJannuzzelli.pdf" target="_blank">📘 Currículo</a>
+      <a href="https://youtu.be/IRs7ZMCRB_M" target="_blank">🎬 Vídeo 1</a>
+      <a href="https://youtu.be/_mOQyAYSj3g" target="_blank">🎬 Vídeo 2</a>
+      <a href="https://youtu.be/3SMpDZHohL4?si=yWN6uI84ZNekAw8l" target="_blank">🎬 Vídeo 3</a>
+      <a href="https://youtu.be/H1DSq7HEvZY" target="_blank">🎬 Vídeo 4</a>
+      <a href="https://youtu.be/P9aOmNPi4z8" target="_blank">🎬 Vídeo 5</a>
+      <a href="https://youtu.be/3yTh9dWGuVA" target="_blank">🎬 Vídeo 6</a>
+    </div>
 
-      <!-- Sessão principal de links -->
-      <div class="links" role="navigation" aria-label="Links do cartão">
-        <a href="Apresentacao_ARAMMETHOD_2025.pdf" target="_blank" rel="noopener">📄 Apresentação ARAM</a>
-        <a href="https://www.linkedin.com/in/tuliojannuzzelli" target="_blank" rel="noopener">💼 LinkedIn</a>
-        <a href="mailto:tuliojannuzzelli@outlook.com">✉️ E-mail</a>
-        <a href="https://wa.me/5512981216006" target="_blank" rel="noopener">📱 WhatsApp</a>
-        <a href="https://youtu.be/IRs7ZMCRB_M" target="_blank" rel="noopener">🎬 Vídeo 1</a>
-        <a href="https://youtu.be/_mOQyAYSj3g" target="_blank" rel="noopener">🎬 Vídeo 2</a>
-        <!-- Espaço para mais 4 vídeos -->
-        <a href="https://youtu.be/3SMpDZHohL4?si=yWN6uI84ZNekAw8l" target="_blank" rel="noopener">🎬 Vídeo 3</a>
-        <a href="https://youtu.be/H1DSq7HEvZY" target="_blank" rel="noopener">🎬 Vídeo 4</a>
-        <a href="https://youtu.be/P9aOmNPi4z8" target="_blank" rel="noopener">🎬 Vídeo 5</a>
-        <a href="https://youtu.be/3yTh9dWGuVA" target="_blank" rel="noopener">🎬 Vídeo 6</a>
-        <a href="https://arammethod.carrd.co/" target="_blank" rel="noopener">🌐 Página do projeto</a>
-        <a href="Curriculo_TulioJannuzzelli.pdf" target="_blank" rel="noopener">📘 Currículo</a>
-      </div>
+    <!-- Portfólio -->
+    <h3>📂 Portfólio de Casos e Projetos</h3>
+    <div class="links">
+      <a href="Apresentacao_Reimold_2020.pdf" target="_blank">📄 Reimold 2020</a>
+      <a href="Apresentacao_Tulio_UNIFESP_2020.pdf" target="_blank">📄 UNIFESP 2020</a>
+      <a href="Projeto_TIBC_Apresentacao_01112019.pdf" target="_blank">📄 TIBC 2019</a>
+      <a href="Proposta_POTI_INAFIETA_VALG_110225.pdf" target="_blank">📄 POTI/INAFIETA 2025</a>
+      <a href="Apresentacao_Aramcard_Curitiba_Service_2025.pdf" target="_blank">📄 Aramcard Curitiba 2025</a>
+      <a href="Jill_Diamond_Brochure_Final.pdf" target="_blank">📄 Jill Diamond Brochure</a>
+    </div>
 
-      <!-- Sessão de Portfólio -->
-      <h3 style="margin-top:20px;">📂 Portfólio de Casos e Projetos</h3>
-      <div class="links">
-        <a href="Apresentacao_Reimold_2020.pdf" target="_blank" rel="noopener">📄 Apresentação Reimold 2020</a>
-        <a href="Apresentacao_Tulio_UNIFESP_2020.pdf" target="_blank" rel="noopener">📄 Apresentação UNIFESP 2020</a>
-        <a href="Projeto_TIBC_Apresentacao_01112019.pdf" target="_blank" rel="noopener">📄 Projeto TIBC 2019</a>
-        <a href="Proposta_POTI_INAFIETA_VALG_110225.pdf" target="_blank" rel="noopener">📄 Proposta POTI/INAFIETA 2025</a>
-        <a href="Apresentacao_Aramcard_Curitiba_Service_2025.pdf" target="_blank" rel="noopener">📄 Aramcard Curitiba Service 2025</a>
-        <a href="Jill_Diamond_Brochure_Final.pdf" target="_blank" rel="noopener">📄 Jill Diamond Brochure</a>
-      </div>
-
-     <!-- Sessão de Contato -->
-<h3 style="margin-top:20px;">📞 Contato</h3>
+   <!-- Contato -->
+<h3>📞 Contato</h3>
 <div class="links">
   <div class="contact-item">👤 Túlio (Magalhães) Pereira Leite Jannuzzelli</div>
-  
   <div class="contact-item email-item">
     ✉️ tuliojannuzzelli@outlook.com
-    <button class="copy-btn" onclick="copyEmail()" aria-label="Copiar e-mail">📋</button>
+    <button class="copy-btn" onclick="copyText('tuliojannuzzelli@outlook.com')">📋</button>
   </div>
-  
-  <a href="https://www.linkedin.com/in/tuliojannuzzelli/" target="_blank" rel="noopener">💼 LinkedIn</a>
-  <a href="https://arammethod.carrd.co/" target="_blank" rel="noopener">🌐 Site do Projeto ARAM</a>
+  <div class="contact-item email-item">
+    📱 WhatsApp: +55 12 98121-6006
+    <button class="copy-btn" onclick="copyText('+5512981216006')">📋</button>
+  </div>
+  <div class="contact-item email-item">
+    💼 LinkedIn
+    <button class="copy-btn" onclick="copyText('https://www.linkedin.com/in/tuliojannuzzelli/')">📋</button>
+  </div>
+  <div class="contact-item email-item">
+    🌐 Site do Projeto ARAM
+    <button class="copy-btn" onclick="copyText('https://arammethod.carrd.co/')">📋</button>
+  </div>
 </div>
 
-<!-- Toast container -->
-<div id="toast"></div>
-  
-  <a href="https://www.linkedin.com/in/tuliojannuzzelli/" target="_blank" rel="noopener">💼 LinkedIn</a>
-  <a href="https://arammethod.carrd.co/" target="_blank" rel="noopener">🌐 Site do Projeto ARAM</a>
-</div>
+    <footer class="footer">
+      <small>ARAM METHOD © 2020 — Licença CC BY-NC-ND 4.0</small>
+    </footer>
+  </div>
 
-      <footer class="footer">
-        <small>ARAM METHOD © 2020 — Licença CC BY-NC-ND 4.0</small>
-      </footer>
-    </section>
-  </main>
+  <!-- Toast container -->
+  <div id="toast"></div>
 
-  <script src="particles.js"></script>
   <script>
-    // Parallax sutil no cartão
-    const scene = document.querySelector('.scene');
-    const card = document.querySelector('.card');
-    let raf;
-    scene.addEventListener('mousemove', (e) => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const rect = scene.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-        card.style.transform = `translate3d(${x * 6}px, ${y * 6}px, 0) rotateX(${y * -2}deg) rotateY(${x * 2}deg)`;
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("Copiado: " + text);
       });
-    });
-    scene.addEventListener('mouseleave', () => {
-      card.style.transform = 'translate3d(0,0,0) rotateX(0) rotateY(0)';
-    });
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.className = "show";
+      setTimeout(() => {
+        toast.className = toast.className.replace("show", "");
+      }, 3000);
+    }
   </script>
 </body>
 </html>
