@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cinzel', serif;
+  background: #0b0b0b;
+  color: #d4af37; /* dourado real */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background: #111;
+  border: 2px solid #d4af37;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(212,175,55,0.5);
+  animation: fadeIn 2s ease-in-out;
+}
+
+.logo {
+  width: 120px;
+  margin-bottom: 20px;
+  animation: pulse 4s infinite;
+}
+
+h1 {
+  margin: 10px 0;
+  font-size: 2em;
+}
+
+h2 {
+  margin: 5px 0 20px 0;
+  font-weight: 400;
+  font-size: 1.2em;
+  color: #f1c40f;
+}
+
+.links a {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #d4af37;
+  border-radius: 8px;
+  color: #d4af37;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.links a:hover {
+  background: #d4af37;
+  color: #111;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
