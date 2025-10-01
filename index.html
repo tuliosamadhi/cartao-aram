@@ -31,6 +31,7 @@
       box-shadow: 0 0 20px rgba(212,175,55,0.4);
       max-width: 400px; width: 92vw;
       animation: fadeIn 1.2s ease;
+      position: relative; z-index: 1;
     }
     .logo {
       width: 100px; margin-bottom: 12px;
@@ -82,11 +83,30 @@
     .footer { font-size: 0.85em; color: var(--amber); margin-top: 10px; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: translateY(0);} }
     @keyframes pulse { 0%,100% { transform: scale(1);} 50% { transform: scale(1.05);} }
+
+    /* Vídeo de abertura */
+    .intro-video {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 9999;
+      animation: fadeOut 2s ease 6s forwards;
+    }
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
   </style>
 </head>
 <body>
+  <!-- Vídeo de abertura -->
+  <video autoplay muted playsinline class="intro-video">
+    <source src="intro-aram.mp4" type="video/mp4">
+    Seu navegador não suporta vídeo.
+  </video>
+
   <div class="card">
-    <img src="logo-aram.png" alt="Símbolo do Método ARAM" class="logo">
+    <img src="Logomarca-aram_2025_semfundo(1).png" alt="Símbolo do Método ARAM" class="logo">
     <img src="aram-card.png" alt="QR Code para acessar o cartão ARAM" class="qr-img">
 
     <h1>Método ARAM</h1>
@@ -98,8 +118,8 @@
 
     <!-- Links principais -->
     <div class="links">
-      <a href="Apresentacao_ARAMMETHOD_2025.pdf" target="_blank">📄 Apresentação ARAM</a>
-      <a href="Curriculo_TulioJannuzzelli.pdf" target="_blank">📘 Currículo</a>
+      <a href="Apresentação_ARAMMETHOD_2025.pdf" download>📄 Apresentação ARAM</a>
+      <a href="Túlioanunzerelli Currículo Service 2025.pdf" download>📘 Currículo</a>
       <a href="https://youtu.be/IRs7ZMCRB_M" target="_blank">🎬 Vídeo 1</a>
       <a href="https://youtu.be/_mOQyAYSj3g" target="_blank">🎬 Vídeo 2</a>
       <a href="https://youtu.be/3SMpDZHohL4?si=yWN6uI84ZNekAw8l" target="_blank">🎬 Vídeo 3</a>
@@ -108,38 +128,27 @@
       <a href="https://youtu.be/3yTh9dWGuVA" target="_blank">🎬 Vídeo 6</a>
     </div>
 
-    <!-- Portfólio -->
-    <h3>📂 Portfólio de Casos e Projetos</h3>
+    <!-- Contato -->
+    <h3>📞 Contato</h3>
     <div class="links">
-      <a href="Apresentacao_Reimold_2020.pdf" target="_blank">📄 Reimold 2020</a>
-      <a href="Apresentacao_Tulio_UNIFESP_2020.pdf" target="_blank">📄 UNIFESP 2020</a>
-      <a href="Projeto_TIBC_Apresentacao_01112019.pdf" target="_blank">📄 TIBC 2019</a>
-      <a href="Proposta_POTI_INAFIETA_VALG_110225.pdf" target="_blank">📄 POTI/INAFIETA 2025</a>
-      <a href="Apresentacao_Aramcard_Curitiba_Service_2025.pdf" target="_blank">📄 Aramcard Curitiba 2025</a>
-      <a href="Jill_Diamond_Brochure_Final.pdf" target="_blank">📄 Jill Diamond Brochure</a>
+      <div class="contact-item">👤 Túlio (Magalhães) Pereira Leite Jannuzzelli</div>
+      <div class="contact-item email-item">
+        ✉️ tuliojannuzzelli@outlook.com
+        <button class="copy-btn" onclick="copyText('tuliojannuzzelli@outlook.com')">📋</button>
+      </div>
+      <div class="contact-item email-item">
+        📱 WhatsApp: +55 12 98121-6006
+        <button class="copy-btn" onclick="copyText('+5512981216006')">📋</button>
+      </div>
+            <div class="contact-item email-item">
+        💼 LinkedIn
+        <button class="copy-btn" onclick="copyText('https://www.linkedin.com/in/tuliojannuzzelli/')">📋</button>
+      </div>
+      <div class="contact-item email-item">
+        🌐 Site do Projeto ARAM
+        <button class="copy-btn" onclick="copyText('https://arammethod.carrd.co/')">📋</button>
+      </div>
     </div>
-
-   <!-- Contato -->
-<h3>📞 Contato</h3>
-<div class="links">
-  <div class="contact-item">👤 Túlio (Magalhães) Pereira Leite Jannuzzelli</div>
-  <div class="contact-item email-item">
-    ✉️ tuliojannuzzelli@outlook.com
-    <button class="copy-btn" onclick="copyText('tuliojannuzzelli@outlook.com')">📋</button>
-  </div>
-  <div class="contact-item email-item">
-    📱 WhatsApp: +55 12 98121-6006
-    <button class="copy-btn" onclick="copyText('+5512981216006')">📋</button>
-  </div>
-  <div class="contact-item email-item">
-    💼 LinkedIn
-    <button class="copy-btn" onclick="copyText('https://www.linkedin.com/in/tuliojannuzzelli/')">📋</button>
-  </div>
-  <div class="contact-item email-item">
-    🌐 Site do Projeto ARAM
-    <button class="copy-btn" onclick="copyText('https://arammethod.carrd.co/')">📋</button>
-  </div>
-</div>
 
     <footer class="footer">
       <small>ARAM METHOD © 2020 — Licença CC BY-NC-ND 4.0</small>
