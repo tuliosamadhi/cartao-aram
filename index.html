@@ -1,25 +1,63 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <title>Cartão Digital — Método ARAM</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cartão ARAM - Túlio Jannuzzelli</title>
+  <meta name="theme-color" content="#0b0b0b">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lato:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="logo-aram.png" as="image">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="card">
-    <img src="Logomarca-aram_2025_semfundo(1).png" alt="Logo ARAM" class="logo">
-    <h1>Túlio Jannuzzelli</h1>
-    <h2>Método ARAM</h2>
-    <p>Desenvolvimento Estratégico, Filosófico e Espiritual</p>
-    
-    <div class="links">
-      <a href="https://www.linkedin.com/in/tulio-jannuzzelli/" target="_blank">LinkedIn</a>
-      <a href="mailto:tulio@email.com">E-mail</a>
-      <a href="tulio.vcf" download>Salvar Contato</a>
-    </div>
-  </div>
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <main class="scene" role="main">
+    <section class="card" aria-label="Cartão Digital ARAM">
+      <img src="logo-aram.png" alt="Símbolo do Método ARAM" class="logo">
+
+      <h1>Método ARAM</h1>
+      <h2>Religare sobre o Religare</h2>
+      <p class="desc">
+        Caminho de Cura, Sabedoria, Inteligência e Integração.<br>
+        Por Túlio Magalhães Jannuzzelli
+      </p>
+
+      <div class="links" role="navigation" aria-label="Links do cartão">
+        <a href="Apresentacao_ARAMMETHOD_2025.pdf" target="_blank" rel="noopener">📄 Apresentação ARAM</a>
+        <a href="https://www.linkedin.com/in/tuliojannuzzelli" target="_blank" rel="noopener">💼 LinkedIn</a>
+        <a href="mailto:aram.tulio@gmail.com">✉️ E-mail</a>
+        <a href="https://wa.me/5512981216006" target="_blank" rel="noopener">📱 WhatsApp</a>
+        <a href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank" rel="noopener">🎬 Vídeo 1</a>
+        <a href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank" rel="noopener">🎬 Vídeo 2</a>
+        <a href="https://arammethod.carrd.co/" target="_blank" rel="noopener">🌐 Página do projeto</a>
+        <a href="Curriculo_TulioJannuzzelli.pdf" target="_blank" rel="noopener">📘 Currículo</a>
+      </div>
+
+      <footer class="footer">
+        <small>ARAM METHOD © 2020 — Licença CC BY-NC-ND 4.0</small>
+      </footer>
+    </section>
+  </main>
+
+  <script src="particles.js"></script>
+  <script>
+    // Parallax sutil no cartão
+    const scene = document.querySelector('.scene');
+    const card = document.querySelector('.card');
+    let raf;
+    scene.addEventListener('mousemove', (e) => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const rect = scene.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+        card.style.transform = `translate3d(${x * 6}px, ${y * 6}px, 0) rotateX(${y * -2}deg) rotateY(${x * 2}deg)`;
+      });
+    });
+    scene.addEventListener('mouseleave', () => {
+      card.style.transform = 'translate3d(0,0,0) rotateX(0) rotateY(0)';
+    });
+  </script>
 </body>
 </html>
-
-
