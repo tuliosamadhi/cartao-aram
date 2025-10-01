@@ -19,9 +19,7 @@ Principais características:
 ## 🚀 Acesso ao Cartão
 Você pode acessar o cartão online através do GitHub Pages:
 
-👉 [Clique aqui para abrir o cartão ARAM](https://SEU_USUARIO.github.io/cartao-aram/)
-
-*(substitua `SEU_USUARIO` pelo seu nome de usuário GitHub)*
+👉 [Clique aqui para abrir o cartão ARAM](https://tuliosamadhi.github.io/cartao-aram/)
 
 ---
 
