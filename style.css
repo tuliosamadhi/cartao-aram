@@ -21,6 +21,24 @@ html, body {
   }
 </script>
 
+<script>
+  function copyEmail() {
+    const email = "tuliojannuzzelli@outlook.com";
+    navigator.clipboard.writeText(email).then(() => {
+      showToast("E-mail copiado: " + email);
+    });
+  }
+
+  function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.className = "show";
+    setTimeout(() => {
+      toast.className = toast.className.replace("show", "");
+    }, 3000); // desaparece em 3s
+  }
+</script>
+
 body {
   font-family: 'Cinzel', serif;
   background: radial-gradient(1200px at 50% 50%, #0b0b0b 0%, #000 70%);
@@ -241,4 +259,31 @@ h2 {
 .copy-btn:hover {
   transform: scale(1.2);
   color: var(--amber);
+}
+
+/* Toast elegante */
+#toast {
+  visibility: hidden;
+  min-width: 220px;
+  background-color: rgba(212,175,55,0.95);
+  color: #111;
+  text-align: center;
+  border-radius: 8px;
+  padding: 12px 16px;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(212,175,55,0.5);
+  opacity: 0;
+  transition: opacity 0.5s ease, bottom 0.5s ease;
+}
+
+#toast.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 60px;
 }
